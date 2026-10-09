@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CMS Unsicher</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<header><a class="brand" href="/">CMS <strong>Unsicher</strong></a><nav><a href="/">Beiträge</a>{% if g.user %}<a href="/posts/new">Neuer Beitrag</a><a href="/profile/{{ g.user.id }}">Profil</a><a href="/admin">Verwaltung</a><a href="/logout">Abmelden</a>{% else %}<a href="/login">Anmelden</a>{% endif %}</nav></header>
+<main><div class="badge">SECURITY TRAINING LAB</div>{% block content %}{% endblock %}</main>
+<footer>Absichtlich verwundbare Übungsanwendung · ausschließlich fiktive Daten</footer>
+</body></html>

@@ -1,0 +1,5 @@
+{% extends 'base.html' %}{% block content %}
+<h1>Beiträge & Geschichten</h1><p class="subtitle">Das kleine CMS für große Sicherheitslektionen.</p>
+<form class="search" method="get"><input name="q" value="{{ query }}" placeholder="Beiträge durchsuchen"><button>Suchen</button></form>
+{% for post in posts %}<article><div class="meta">Beitrag {{ post.id }} · {{ post.username }}</div><h2>{{ post.title }}</h2><div class="body">{{ post.body|safe }}</div>{% if g.user %}<a class="danger" href="/admin/delete/{{ post.id }}">Beitrag löschen</a>{% endif %}</article>{% else %}<article>Keine Beiträge gefunden.</article>{% endfor %}
+{% endblock %}
